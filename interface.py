@@ -48,10 +48,10 @@ entry_note.grid(row=3, column=1, padx=10, pady=5)
 add_button = tk.Button(root, text="Add movie", command=add_movie)
 add_button.grid(row=4, column=0, columnspan=2, pady=5)
 
-update_button = tk.Button(root, text="Update movie", command=add_movie)
+update_button = tk.Button(root, text="Update movie", command=update_movie)
 update_button.grid(row=5, column=0, columnspan=2, pady=5)
 
-delete_button = tk.Button(root, text="Delete movie", command=add_movie)
+delete_button = tk.Button(root, text="Delete movie", command=remove_movie)
 delete_button.grid(row=6, column=0, columnspan=2, pady=5)
 
 root.mainloop()

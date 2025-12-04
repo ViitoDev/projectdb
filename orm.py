@@ -49,5 +49,3 @@ def film_delete(id):
         session.delete(films)
     session.commit()
     session.close()
-
-film_delete(2)
