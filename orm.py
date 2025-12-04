@@ -39,4 +39,15 @@ def film_atualize(id, name=None, year=None, note=None):
         session.commit()
     session.close()
 
-film_atualize(1,"Sarah's Oil", 2025, 9.8)
+# film_atualize(1,"Sarah's Oil", 2025, 9.8)
+
+def film_delete(id):
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    films = session.query(film).filter_by(id=id).first()
+    if films:
+        session.delete(films)
+    session.commit()
+    session.close()
+
+film_delete(2)
