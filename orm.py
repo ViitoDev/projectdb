@@ -13,3 +13,14 @@ class film(base):
     note = Column(Float, nullable=False)
 
 base.metadata.create_all(engine)
+
+def film_add(name, year, note):
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    films = film(name=name, year=year, note=note)
+    session.add(films)
+    session.commit()
+    session.close()
+
+film_add("TRON : Ares", 2025, 8.4)
+film_add("Black Phone 2", 2025, 8.3)
