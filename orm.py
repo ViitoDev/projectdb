@@ -22,5 +22,21 @@ def film_add(name, year, note):
     session.commit()
     session.close()
 
-film_add("TRON : Ares", 2025, 8.4)
-film_add("Black Phone 2", 2025, 8.3)
+# film_add("TRON : Ares", 2025, 8.4)
+# film_add("Black Phone 2", 2025, 8.3)
+
+def film_atualize(id, name=None, year=None, note=None):
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    films = session.query(film).filter_by(id=id).first()
+    if films:
+        if name is not None:
+            films.name = name
+        if year is not None:
+            films.year = year
+        if note is not None:
+            films.note = note
+        session.commit()
+    session.close()
+
+film_atualize(1,"Sarah's Oil", 2025, 9.8)
